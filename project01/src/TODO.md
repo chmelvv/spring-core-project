@@ -11,6 +11,7 @@ Create domain objects as needed. Create DAO classes for storing data in simple s
 (later, they will be replaced for storing data in DB).
 
 Application for managing a movie theater. 
+
 Allows for admins to enter events, view purchased tickets. 
 Allows for users to register, view events with air dates and times, get ticket price, buy tickets.
 
