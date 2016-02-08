@@ -18,17 +18,17 @@ public class UserService {
 	public User getById(int id){
 
 		//TODO
-		return new User();
+		return null;
 	}
 	
 	public User getUserByEmail(String email){
 		//TODO
-		return new User();
+		return null;
 	}
 	
 	public User getUserByName(String name){
 		//TODO
-		return new User();
+		return null;
 	}
 	
 	public List<Ticket> getBookedTickets(User user){
