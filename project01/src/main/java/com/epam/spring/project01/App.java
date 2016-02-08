@@ -3,7 +3,7 @@ package com.epam.spring.project01;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.epam.spring.project01.dao.UserDaoImpl;
+
 
 /**
  * Hello world!
@@ -11,17 +11,17 @@ import com.epam.spring.project01.dao.UserDaoImpl;
  */
 public class App 
 {
-	UserDaoImpl userDaoImpl;
+	UserService userService;
 	
-	public App(UserDaoImpl userDaoImpl){
-		this.userDaoImpl = userDaoImpl;
+	public App(UserService userService){
+		this.userService = userService;
 	}
     public static void main( String[] args )
     {
-    	ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("main.xml");
-    	UserDaoImpl userDaoImpl =  ctx.getBean("UserDaoImpl", UserDaoImpl.class);
+		ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("main.xml");
+    	UserService userService =  ctx.getBean("userService", UserService.class);
     	
-    	for (User user:userDaoImpl.getAllUsers() ){
+    	for (User user:userService.getAllUsers() ){
     		System.out.println(user.toString());
     	}
     }
