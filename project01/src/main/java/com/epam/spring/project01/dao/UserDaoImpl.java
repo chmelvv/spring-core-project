@@ -16,40 +16,29 @@ public class UserDaoImpl implements UserDao {
 		return users;
 	}
 
-	public User getUser(int id) {
-		for (User user: users){
-			if (user.getId() == id) return user; 
-		}
-		return null;		
-	}
-
-	public void updateUser(User user) {
-		for (User u: users){
-			if (u.getId() == user.getId()) u = user; 
-		}
-	}
-
 	public void deleteUser(User user) {
 		users.remove(user); 
 	}
 
 	public User getById(int id) {
-		// TODO Auto-generated method stub
+		for (User user: users){
+			if (user.getId() == id) return user; 
+		}
 		return null;
 	}
 
 	public void register(User user) {
-		// TODO Auto-generated method stub
-		
+		users.add(user);	
 	}
 
 	public void remove(User user) {
-		// TODO Auto-generated method stub
-		
+		users.remove(user);
 	}
 
 	public void update(User user) {
-		// TODO Auto-generated method stub
+		for (User u: users){
+			if (u.getId() == user.getId()) u = user; 
+		}
 		
 	}
 

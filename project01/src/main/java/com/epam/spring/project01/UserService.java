@@ -4,43 +4,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.epam.spring.project01.dao.UserDao;
+import com.epam.spring.project01.dao.UserDaoImpl;
 /* - register, remove, getById, getUserByEmail, getUsersByName, getBookedTickets
  * Allows for admins to enter events, view purchased tickets. 
 Allows for users to register, view events with air dates and times, get ticket price, buy tickets.
  */
-public class UserService implements UserDao{
-	List<User> users;
+public class UserService {
+	UserDaoImpl userDaoImpl;
 	
-	public UserService(List<User> users){
-		this.users = users;
+	public UserService(UserDaoImpl userDaoImpl){
+		this.userDaoImpl = userDaoImpl;
 	}
 	
 	public void register(User user){
-		users.add(user);
+		userDaoImpl.register(user);
 	}
 	
 	public void remove(User user){
-		users.remove(user);
+		userDaoImpl.remove(user);
 	}
 	
 	public User getById(int id){
-		for (User u: users) {
-			if (u.getId() == id) return u;
-		}
-		return null;
+		return userDaoImpl.getById(id);
 	}
 	
 	public User getUserByEmail(String email){
-		for (User u: users) {
+		for (User u: userDaoImpl.getAllUsers()){
 			if (u.getEmail().equals(email)) return u;
 		}
+		
 		return null;
 	}
 	
 	public User getUserByName(String name){
-		for (User u: users) {
+		for (User u: userDaoImpl.getAllUsers()){
 			if (u.getName().equals(name)) return u;
 		}
+		
 		return null;
 	}
 	
@@ -50,16 +50,4 @@ public class UserService implements UserDao{
 		return new ArrayList<Ticket>();
 	}
 
-	public List<User> getAllUsers() {
-		return users;
-	}
-
-	public void update(User user) {
-		for (User u: users) {
-			if (u.getId() == user.getId()) {
-				u = user;
-				break;
-			}
-		}
-	}
 }
