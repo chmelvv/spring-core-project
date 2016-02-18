@@ -6,7 +6,7 @@
  	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:c="http://www.springframework.org/schema/c">
 	
-	<bean id="userService" class="com.epam.spring.project01.UserService">
+	<bean id="UserDaoImpl" class="com.epam.spring.project01.dao.UserDaoImpl">
 		<constructor-arg>
 			<list>
 				<ref bean="admin" />

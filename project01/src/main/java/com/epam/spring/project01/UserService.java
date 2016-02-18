@@ -24,7 +24,10 @@ public class UserService implements UserDao{
 	}
 	
 	public User getById(int id){
-		return users.get(id);
+		for (User u: users) {
+			if (u.getId() == id) return u;
+		}
+		return null;
 	}
 	
 	public User getUserByEmail(String email){
@@ -52,8 +55,11 @@ public class UserService implements UserDao{
 	}
 
 	public void update(User user) {
-		users.get(user.getId()).setName(user.getName());
-		users.get(user.getId()).setAdmin(user.isAdmin());
-		users.get(user.getId()).setDayOfBirth(user.getDayOfBirth());
+		for (User u: users) {
+			if (u.getId() == user.getId()) {
+				u = user;
+				break;
+			}
+		}
 	}
 }
