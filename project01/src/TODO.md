@@ -10,7 +10,7 @@ Create Spring application with the following services and logic using either XML
 Create domain objects as needed. Create DAO classes for storing data in simple static maps 
 (later, they will be replaced for storing data in DB).
 
-Application for managing a movie theater. 
+Application for managing a Movie Theater. 
 
 Allows for admins to enter events, view purchased tickets. 
 Allows for users to register, view events with air dates and times, get ticket price, buy tickets.

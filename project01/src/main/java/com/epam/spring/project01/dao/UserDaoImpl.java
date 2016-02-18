@@ -33,4 +33,24 @@ public class UserDaoImpl implements UserDao {
 		users.remove(user); 
 	}
 
+	public User getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void register(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void remove(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
