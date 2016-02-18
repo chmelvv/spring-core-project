@@ -17,17 +17,20 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	public User getUser(int id) {
-		return users.get(id);
+		for (User user: users){
+			if (user.getId() == id) return user; 
+		}
+		return null;		
 	}
 
 	public void updateUser(User user) {
-		users.get(user.getId()).setName(user.getName());
-		users.get(user.getId()).setAdmin(user.isAdmin());
-		users.get(user.getId()).setDayOfBirth(user.getDayOfBirth());
+		for (User u: users){
+			if (u.getId() == user.getId()) u = user; 
+		}
 	}
 
 	public void deleteUser(User user) {
-		users.remove(user.getId());
+		users.remove(user); 
 	}
 
 }

@@ -37,7 +37,6 @@ create, remove, getByName, getAll
 - assignAuditorium(event, auditorium, date) - assign auditorium for event for specific date. Only one auditorium for Event for specific dateTime
 
 #AuditoriumService - Returns info about auditoriums and places
-
 Since auditorium information is usually static, store it in some property file. 
 The information that needs to be stored is:
    name
