@@ -65,7 +65,7 @@ public class UserServiceTest {
 
 	@Test
 	public void testGetBookedTickets() {
-		assertTrue(false);
+		fail();
 	}
 
 }
