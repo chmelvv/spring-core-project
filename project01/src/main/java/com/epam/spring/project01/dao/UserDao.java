@@ -5,9 +5,9 @@ import java.util.List;
 import com.epam.spring.project01.User;
 
 public interface UserDao {
-	public List<User> getAllUsers();
-	public User getById(int id);
-	public void register(User user);
-	public void remove(User user);
-	public void update(User user);
+	List<User> getAllUsers();
+	User getById(int id);
+	void register(User user);
+	void remove(User user);
+	void update(User user);
 }

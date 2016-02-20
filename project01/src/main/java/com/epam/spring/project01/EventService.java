@@ -1,5 +1,8 @@
 package com.epam.spring.project01;
 
+import com.epam.spring.project01.dao.EventDao;
+import com.epam.spring.project01.dao.EventDaoImpl;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
@@ -7,7 +10,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-/* Manages events (movie shows). 
+/* Manages events (movie shows).
+
 Event contains only basic information, like name, base price for tickets, rating (high, mid, low).
  
 //TODO
@@ -23,30 +27,37 @@ Event contains only basic information, like name, base price for tickets, rating
 */
 
 public class EventService {
-	
-	String eventName;
-	long ticketPrice;
+
+	EventDaoImpl eventDaoImpl;
+
+	public EventService(EventDaoImpl eventDaoImpl) {
+		this.eventDaoImpl = eventDaoImpl;
+	}
+
 	Rating rating;
 	
-	public Event create(){
-		//TODO
-		return new Event();
+	public void create(Event event){
+		eventDaoImpl.create(event);
 	}
 	
 	public void remove(Event event){
-		//TODO
+		eventDaoImpl.remove(event);
 	}
 	
-	public Event getByName(String eventName){
-		//TODO
-		return new Event();
+	public Event getByName(String name){
+		return eventDaoImpl.getByName(name);
 	}
 	
 	public List<Event> getAll(){
-		//TODO
-		return new ArrayList<Event>();
+		return eventDaoImpl.getAll();
 	}
-	
+
+	//assignAuditorium(event, auditorium, date) - assign auditorium for event for specific date.
+	// Only one auditorium for Event for specific dateTime
+	public void assignAuditorium(Event event, Auditorium auditorium, LocalDate date, LocalTime time){
+		//TODO
+	}
+
 	//returns events for specified date range (OPTIONAL)
 	public List<Event> getForDateRange(LocalDate from, LocalDate to){
 		//TODO OPTIONAL
@@ -54,16 +65,11 @@ public class EventService {
 	}
 	
 	// returns events from now till the ‘to’ date (OPTIONAL)
-	public List<Event> getNextEvents(LocalDate to){	
+	public List<Event> getNextEvents(LocalDate to){
+		//TODO OPTIONAL
 		return getForDateRange(LocalDate.now(), to);
 	}
-	
-	//assignAuditorium(event, auditorium, date) - assign auditorium for event for specific date. 
-	// Only one auditorium for Event for specific dateTime
-	public void assignAuditorium(Event event, Auditorium auditorium, LocalDate date, LocalTime time){
-		//TODO
-	}
-	
+
 	public void assignAuditorium(Event event, Auditorium auditorium, Date date){	
 		assignAuditorium(event, auditorium, 
 				date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), 
