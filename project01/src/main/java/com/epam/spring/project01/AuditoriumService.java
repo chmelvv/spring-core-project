@@ -1,6 +1,7 @@
 package com.epam.spring.project01;
 
-import java.util.ArrayList;
+import com.epam.spring.project01.dao.AuditoriumDaoImpl;
+
 import java.util.List;
 
 /* #AuditoriumService - Returns info about auditoriums and places
@@ -10,8 +11,7 @@ The information that needs to be stored is:
    name
    number of seats
    vip seats (comma-separated list of expensive seats)
-   
-//TODO
+
 *******Several auditoriums can be stored in separate property files, information from them could be injected 
 into the AuditoriumService
 
@@ -19,20 +19,21 @@ into the AuditoriumService
  */
 
 public class AuditoriumService {
+	private AuditoriumDaoImpl auditoriumDaoImpl;
 
-	public List<Auditorium> getAuditoriums(){
-		//TODO
-		return new ArrayList<Auditorium>();
+	public AuditoriumService(AuditoriumDaoImpl auditoriumDaoImpl) {
+		this.auditoriumDaoImpl = auditoriumDaoImpl;
+	}
+
+	public List<Auditorium> getAllAuditoriums(){
+		return auditoriumDaoImpl.getAllAuditoriums();
 	}
 	
-	public int getSeatsNumber(Auditorium auditorium){
-		//TODO
-		return 30;
+	public int getSeatsNumber(String name){
+		return auditoriumDaoImpl.getByName(name).getSeatsNumber();
 	}
-	
-	
-	public String getVipSeats(Auditorium auditorium){
-		//TODO
-		return "1,2,3,4,5,6,7,8,9,10";
+
+	public String getVipSeats(String name){
+		return auditoriumDaoImpl.getByName(name).getVipSeats();
 	}
 }

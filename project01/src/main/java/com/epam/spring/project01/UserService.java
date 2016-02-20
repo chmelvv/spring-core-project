@@ -47,7 +47,6 @@ public class UserService {
 	}
 	
 	public List<Ticket> getBookedTickets(User user){
-		
 		//TODO
 		return new ArrayList<Ticket>();
 	}

@@ -7,5 +7,5 @@ import com.epam.spring.project01.User;
 
 public interface AuditoriumDao {
 	public List<Auditorium> getAllAuditoriums();
-	public Auditorium getAuditorium(String name);
+	public Auditorium getByName(String name);
 }

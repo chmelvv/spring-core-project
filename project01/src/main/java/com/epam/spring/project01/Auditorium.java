@@ -10,8 +10,17 @@ public class Auditorium {
     	this.seatsNumber = seatsNumber;
     	this.vipSeats = vipSeats;
     }
-    
-    public String getName() {
+
+	@Override
+	public String toString() {
+		return "Auditorium{" +
+				"name='" + name + '\'' +
+				", seatsNumber=" + seatsNumber +
+				", vipSeats='" + vipSeats + '\'' +
+				'}';
+	}
+
+	public String getName() {
 		return name;
 	}
     

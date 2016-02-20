@@ -1,0 +1,47 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c">
+
+    <bean id="AuditoriumDaoImpl" class="com.epam.spring.project01.dao.AuditoriumDaoImpl">
+        <constructor-arg>
+            <list>
+                <ref bean="east" />
+                <ref bean="west" />
+                <ref bean="north" />
+                <ref bean="south" />
+            </list>
+        </constructor-arg>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:auditoriums.properties</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="east" class="com.epam.spring.project01.Auditorium">
+        <constructor-arg type="java.lang.String" index="0" value="${east.name}" />
+        <constructor-arg type="int" index="1" value="${east.seatsNumber}" />
+        <constructor-arg type="java.lang.String" index="2" value="${east.vipSeats}" />
+    </bean>
+    <bean id="west" class="com.epam.spring.project01.Auditorium">
+        <constructor-arg type="java.lang.String" index="0"  value="${west.name}" />
+        <constructor-arg type="int" index="1"  value="${west.seatsNumber}" />
+        <constructor-arg type="java.lang.String" index="2" value="${west.vipSeats}" />
+    </bean>
+    <bean id="north" class="com.epam.spring.project01.Auditorium">
+        <constructor-arg type="java.lang.String" index="0"  value="${north.name}" />
+        <constructor-arg type="int" index="1" value="${north.seatsNumber}" />
+        <constructor-arg type="java.lang.String" index="2" value="${north.vipSeats}" />
+    </bean>
+    <bean id="south" class="com.epam.spring.project01.Auditorium">
+        <constructor-arg type="java.lang.String" index="0"  value="${south.name}" />
+        <constructor-arg type="int" index="1"  value="${south.seatsNumber}" />
+        <constructor-arg type="java.lang.String" index="2"  value="${south.vipSeats}" />
+    </bean>
+
+</beans>

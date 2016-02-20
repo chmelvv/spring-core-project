@@ -29,7 +29,7 @@ public class UserDaoImplTest {
 		for (User user: users){
 			log.info(user.toString());
 		}
-		assertEquals(this.userDaoImpl.getAllUsers(), this.users);
+		assertEquals(userDaoImpl.getAllUsers(), this.users);
 	}
 
 	@Test

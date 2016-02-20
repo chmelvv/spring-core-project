@@ -10,7 +10,17 @@ import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.epam.spring.project01.dao.AuditoriumDaoImpl;
-import com.epam.spring.project01.dao.UserDaoImpl;
+/* #AuditoriumService - Returns info about auditoriums and places
+Since auditorium information is usually static, store it in some property file.
+The information that needs to be stored is:
+   name
+   number of seats
+   vip seats (comma-separated list of expensive seats)
+
+Several auditoriums can be stored in separate property files, information from them could be injected into the AuditoriumService
+ - getAuditoriums(), getSeatsNumber(), getVipSeats()
+
+*/
 
 public class AuditoriumDaoImplTest {
 	static final Logger log = Logger.getLogger(AuditoriumDaoImplTest.class);
@@ -25,8 +35,20 @@ public class AuditoriumDaoImplTest {
 	}
 
 	@Test
-	public void testGetAuditorium() {
-		assertEquals(auditoriumDaoImpl.getAuditorium(auditoriums.get(1).getName()), auditoriums.get(1));
+	public void testGetByName() {
+		assertEquals(auditoriumDaoImpl.getByName(auditoriums.get(1).getName()), auditoriums.get(1));
 	}
+
+
+	@Test
+	public void testGetAllAuditoriums(){
+		for (Auditorium au: auditoriums){
+			log.info(au.toString());
+		}
+
+		assertEquals(auditoriumDaoImpl.getAllAuditoriums(), auditoriums);
+	}
+
+
 
 }
