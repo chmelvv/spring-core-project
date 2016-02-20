@@ -13,8 +13,8 @@ import com.epam.spring.project01.dao.UserDaoImpl;
 
 public class UserDaoImplTest {
 	static final Logger log = Logger.getLogger(UserDaoImplTest.class);
-	UserDaoImpl userDaoImpl;
-	List<User> users;
+	private UserDaoImpl userDaoImpl;
+	private List<User> users;
 
 	@SuppressWarnings("resource")
 	@Before
@@ -35,15 +35,15 @@ public class UserDaoImplTest {
 	@Test
 	public void testGetUser() {
 		User testUser = users.get(1);
-		assertEquals(userDaoImpl.getUser(testUser.getId()), testUser);
+		assertEquals(userDaoImpl.getById(testUser.getId()), testUser);
 	}
 
 	@Test
 	public void testUpdateUser() {
 		User testUser = users.get(2);
 		testUser.setName("Kate");
-		userDaoImpl.updateUser(testUser);
-		assertEquals(userDaoImpl.getUser(testUser.getId()).getName(),testUser.getName());
+		userDaoImpl.update(testUser);
+		assertEquals(userDaoImpl.getById(testUser.getId()).getName(),testUser.getName());
 	}
 
 	@Test
