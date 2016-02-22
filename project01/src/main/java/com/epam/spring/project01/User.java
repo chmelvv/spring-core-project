@@ -1,6 +1,7 @@
 package com.epam.spring.project01;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class User {
 	private int id;
@@ -8,6 +9,7 @@ public class User {
 	private LocalDate dayOfBirth;
 	private boolean isAdmin;
 	String email;
+	List<Ticket> tikets;
 	
 	@Override
 	public String toString() {

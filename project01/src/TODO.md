@@ -1,10 +1,10 @@
-#Practical tasks
+# Practical tasks
 (https://university.epam.com/courses/EPAM/0059/2016_1/courseware/409eb788e67b42f68235a6cd55ff6cbd/26123ea0d22f48969e00d9b75c166446/)
 Time: 8-16 hours
 **Expected result:show demonstration and provide code.**
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
-##Task description: 
+## Task description:
 
 Create Spring application with the following services and logic using either XML or Annotation configuration. 
 Create domain objects as needed. Create DAO classes for storing data in simple static maps 
@@ -24,19 +24,30 @@ Use latest Spring 3 version (3.x.x)
 
 @ Services and their descriptions:
 
-#UserService - Manages registered users 
-- register, remove, getById, getUserByEmail, getUsersByName, getBookedTickets
+# UserService - Manages registered users
+- +register
+- +remove
+- +getById
+- +getUserByEmail
+- +getUsersByName
+- !getBookedTickets
 
-#EventService - Manages events (movie shows). 
-Event contains only basic information, like name, base price for tickets, rating (high, mid, low). 
+# EventService - Manages events (movie shows).
+Event contains only basic information:
+    name, base price for tickets, rating (high, mid, low).
 Event can be presented on several dates and several times within each day. 
 For each dateTime an Event will be presented only in single auditorium.
-create, remove, getByName, getAll
+
+- +create
+- +remove
+- +getByName
+- +getAll
+- !assignAuditorium(event, auditorium, date) - assign auditorium for event for specific date.
+Only one auditorium for Event for specific dateTime
 - getForDateRange(from, to) - returns events for specified date range (OPTIONAL)
 - getNextEvents(to) - returns events from now till the ‘to’ date (OPTIONAL)
-- assignAuditorium(event, auditorium, date) - assign auditorium for event for specific date. Only one auditorium for Event for specific dateTime
 
-#AuditoriumService - Returns info about auditoriums and places
+# AuditoriumService - Returns info about auditoriums and places
 Since auditorium information is usually static, store it in some property file. 
 The information that needs to be stored is:
    name
@@ -46,7 +57,7 @@ The information that needs to be stored is:
 Several auditoriums can be stored in separate property files, information from them could be injected into the AuditoriumService
  - getAuditoriums(), getSeatsNumber(), getVipSeats()
 
-#BookingService - Manages tickets, prices, bookings
+# BookingService - Manages tickets, prices, bookings
 
 - getTicketPrice(event, date, time, seats, user) - returns price for ticket for specified event on specific date and time for 
 specified seats.
@@ -54,10 +65,11 @@ specified seats.
   Event is needed to get base price, rating
   Vip seats should cost more than regular seats (For example, 2xBasePrice)
   All prices for high rated movies should be higher (For example, 1.2xBasePrice)
-- bookTicket(user, ticket) - user could  be registered or not. If user is registered, then booking information is stored for that user. Purchased tickets for particular event should be stored
+- bookTicket(user, ticket) - user could  be registered or not.
+If user is registered, then booking information is stored for that user. Purchased tickets for particular event should be stored
 - getTicketsForEvent(event, date) - get all purchased tickets for event for specific date
 
-#DiscountService - Counts different discounts for purchased tickets
+# DiscountService - Counts different discounts for purchased tickets
 - getDiscount(user, event, date) - returns discount for each ticket for the user on particular event
 - DiscountStrategy - single class with logic for calculating discount
    Birthday strategy - give 5% if user has birthday
